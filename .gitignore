@@ -1,3 +1,5 @@
 .env
 private/
 sandbox/
+!backend/sandbox/
+!backend/sandbox/**
