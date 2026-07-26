@@ -59,8 +59,9 @@ services:
     image: minio/minio:latest
     container_name: minio
     restart: unless-stopped
-    env_file:
-      - backend/.env
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
     ports:
       - "9000:9000"
       - "9001:9001"

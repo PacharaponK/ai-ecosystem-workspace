@@ -3,3 +3,7 @@
 __pycache__/
 *.pyc
 .env
+
+# local test assets / downloads for sandbox scripts
+sandbox/minio/assets/
+sandbox/minio/downloads/
