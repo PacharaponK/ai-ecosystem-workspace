@@ -1,8 +1,16 @@
+# Shared log config — json-file driver, rotate at 10m, keep 3 files per container
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
 services:
   redis:
     image: redis:8.8.0-alpine
     container_name: redis
     restart: unless-stopped
+    logging: *default-logging
     ports:
       - "6379:6379"
     volumes:
@@ -19,6 +27,7 @@ services:
     image: postgres:17-alpine
     container_name: postgres
     restart: unless-stopped
+    logging: *default-logging
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -38,6 +47,7 @@ services:
     image: heartexlabs/label-studio:1.13.1
     container_name: label-studio
     restart: unless-stopped
+    logging: *default-logging
     depends_on:
       postgres:
         condition: service_healthy
@@ -59,6 +69,7 @@ services:
     image: minio/minio:latest
     container_name: minio
     restart: unless-stopped
+    logging: *default-logging
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}

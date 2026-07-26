@@ -30,6 +30,12 @@ class Settings(BaseSettings):
     minio_root_password: str = ""
     minio_secure: bool = False
 
+    # Logging
+    log_level: str = "DEBUG"         # Lowest level the logger accepts
+    log_file: str = "logs/app.log"   # Log file path (relative to backend/)
+    log_max_bytes: int = 1_000_000   # Max size per file before rotating (~1 MB)
+    log_backup_count: int = 3        # How many rotated files to keep
+
     @property
     def database_url(self) -> str:
         return (
