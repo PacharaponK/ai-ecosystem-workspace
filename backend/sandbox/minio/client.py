@@ -1,5 +1,5 @@
 # backend/sandbox/minio/client.py
-"""MinIO client — Work #... (PHASE 3)"""
+"""MinIO client — Work #... (MinIO #3)"""
 from minio import Minio
 
 from core.config import settings

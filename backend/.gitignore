@@ -7,3 +7,6 @@ __pycache__/
 # local test assets / downloads for sandbox scripts
 sandbox/minio/assets/
 sandbox/minio/downloads/
+
+# logs
+logs/
