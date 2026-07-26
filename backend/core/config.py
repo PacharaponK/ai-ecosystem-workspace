@@ -24,6 +24,12 @@ class Settings(BaseSettings):
     label_studio_url: str = "http://localhost:8080"
     label_studio_api_key: str = ""
 
+    # MinIO
+    minio_endpoint: str = "localhost:9000"
+    minio_root_user: str = "minioadmin"
+    minio_root_password: str = ""
+    minio_secure: bool = False
+
     @property
     def database_url(self) -> str:
         return (
